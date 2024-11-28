@@ -1,0 +1,66 @@
+/* General body styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height for flex layout */
+    background-image: url('3d-rendering-hexagonal-texture-background.jpg');
+    background-size: cover; /* Cover the entire screen */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    color: #ff2424; /* Change text color for contrast */
+}
+
+.box {
+    background-color: #161616; /* Light background color */
+    border: 1px solid #ff0000; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Internal padding */
+    margin-bottom: 20px; /* Space below the box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Optional: Style for individual cards */
+.card {
+    border: none; /* Remove default border from Bootstrap card */
+    background-color: rgb(46, 46, 46);
+    box-shadow: 0 2px 5px rgba(255, 1, 1, 0.1); /* Subtle shadow for card */
+}
+
+/* Header styles */
+nav {
+    position: fixed; /* Fix the navbar to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure the navbar is above other content */
+}
+/* Navbar customization for flexbox */
+.navbar-nav {
+    gap: 15px; /* Adds spacing between nav items */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Optional styling for brand */
+}
+
+/* Main content area */
+main {
+    flex: 1; /* Allow the main area to expand */
+    padding-top: 56px; /* Space for the fixed navbar */
+}
+
+/* Footer styles */
+footer {
+    margin-top: auto; /* Push the footer to the bottom */
+    padding: 20px 0;
+    background-color: rgba(31, 31, 31, 0.8); /* Slightly transparent white background for footer */
+    color: #ffffff; /* Change footer text color for visibility */
+}
+
+/* Carousel item styles */
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}

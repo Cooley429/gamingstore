@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Gaming Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex">
+        <a class="navbar-brand" href="#">Gaming Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+        <div class="container mt-5">
+            <div class="box text-center mb-4">
+                <h1>Shop</h1>
+                <p>Explore our range of gaming products!</p>
+                <button class="btn btn-info" onclick="showCart()">View Cart</button>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img id="consoleImage" src="Consoles.png" class="card-img-top" alt="Gaming Console">
+                    <div class="card-body">
+                        <h5 id="consoleTitle" class="card-title">Gaming Console</h5>
+                        <p id="consolePrice" class="card-text">$299.99</p>
+                        <label for="consoleSelect">Choose a Console:</label>
+                        <select id="consoleSelect" class="form-control mb-2" onchange="updateConsoleInfo()">
+                            <option value="PS5" data-image="PS5.webp" data-price="299.99" data-description="Experience lightning-fast load times and stunning visuals with the PS5.">PlayStation 5 - $299.99</option>
+                            <option value="Xbox Series X" data-image="Xbox.jpg" data-price="299.99" data-description="The most powerful Xbox ever. Play thousands of games from four generations.">Xbox Series X - $299.99</option>
+                            <option value="Nintendo Switch" data-image="Nitendo.jpg" data-price="299.99" data-description="The hybrid console that lets you play at home or on the go.">Nintendo Switch - $299.99</option>
+                        </select>
+                        <button onclick="addToCart('Gaming Console', parseFloat(document.querySelector('#consoleSelect option:checked').dataset.price), document.getElementById('consoleSelect').value)" class="btn btn-primary">Add to Cart</button>
+                        <div id="consoleInfo" class="mt-3">
+                            <p id="consoleDescription">Select a console to see its details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="col-md-4">
+                <div class="card">
+                    <img id="headsetImage" src="HS.png" class="card-img-top" alt="Gaming Headset">
+                    <div class="card-body">
+                        <h5 id="headsetTitle" class="card-title">Gaming Headset</h5>
+                        <p id="headsetPrice" class="card-text">$89.99</p>
+                        <label for="headsetSelect">Choose a Headset:</label>
+                        <select id="headsetSelect" class="form-control mb-2" onchange="updateHeadsetInfo()">
+                            <option value="SteelSeries Arctis 7" data-image="SA7.jpg" data-price="89.99" data-description="High-quality audio for a premium gaming experience.">SteelSeries Arctis 7 - $89.99</option>
+                            <option value="Razer Kraken" data-image="RK.jpg" data-price="79.99" data-description="Immersive sound and unbeatable comfort.">Razer Kraken - $79.99</option>
+                            <option value="HyperX Cloud II" data-image="HC2.jpg" data-price="99.99" data-description="Durable, lightweight, and crystal-clear sound.">HyperX Cloud II - $99.99</option>
+                        </select>
+                        <button onclick="addToCart('Gaming Headset', parseFloat(document.querySelector('#headsetSelect option:checked').dataset.price), document.getElementById('headsetSelect').value)" class="btn btn-primary">Add to Cart</button>
+                        <div id="headsetInfo" class="mt-3">
+                            <p id="headsetDescription">Select a headset to see its details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <img id="controllerImage" src="Controllers.webp" class="card-img-top" alt="Gaming Controller">
+                    <div class="card-body">
+                        <h5 id="controllerTitle" class="card-title">Gaming Controller</h5>
+                        <p id="controllerPrice" class="card-text">$49.99</p>
+                        <label for="controllerSelect">Choose a Controller:</label>
+                        <select id="controllerSelect" class="form-control mb-2" onchange="updateControllerInfo()">
+                            <option value="PS5 Controller" 
+                                    data-image="PSC.jpg" 
+                                    data-price="49.99" 
+                                    data-description="Experience enhanced haptic feedback and adaptive triggers with the PS5 Controller.">
+                                PS5 Controller - $49.99
+                            </option>
+                            <option value="Xbox Controller" 
+                                    data-image="XboxC.webp" 
+                                    data-price="49.99" 
+                                    data-description="A sleek and ergonomic design ensures comfort with the Xbox Controller.">
+                                Xbox Controller - $49.99
+                            </option>
+                            <option value="Nintendo Controller" 
+                                    data-image="NC.jpg" 
+                                    data-price="49.99" 
+                                    data-description="Enjoy versatile gameplay with the Nintendo Controller.">
+                                Nintendo Controller - $49.99
+                            </option>
+                        </select>
+                        <button 
+                            onclick="addToCart('Gaming Controller', parseFloat(document.querySelector('#controllerSelect option:checked').dataset.price), document.getElementById('controllerSelect').value)" 
+                            class="btn btn-primary">
+                            Add to Cart
+                        </button>
+                        <div id="controllerInfo" class="mt-3">
+                            <p id="controllerDescription">Select a controller to see its details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img id="laptopImage" src="GL.jpg" class="card-img-top" alt="Gaming Laptop">
+                    <div class="card-body">
+                        <h5 id="laptopTitle" class="card-title">Gaming Laptop</h5>
+                        <p id="laptopPrice" class="card-text">$1299.99</p>
+                        <label for="laptopSelect">Choose a Laptop:</label>
+                        <select id="laptopSelect" class="form-control mb-2" onchange="updateLaptopInfo()">
+                            <option value="Alienware m15" data-image="AW.jpg" data-price="1299.99" data-description="Powerful performance with stunning visuals.">Alienware m15 - $1299.99</option>
+                            <option value="ASUS ROG Zephyrus" data-image="ARZ.jpg" data-price="1199.99" data-description="Sleek design and exceptional gaming capabilities.">ASUS ROG Zephyrus - $1199.99</option>
+                            <option value="MSI Raider GE78" data-image="MRG.jpg" data-price="1399.99" data-description="Cutting-edge specs for ultimate gaming.">MSI Raider GE78 - $1399.99</option>
+                        </select>
+                        <button onclick="addToCart('Gaming Laptop', parseFloat(document.querySelector('#laptopSelect option:checked').dataset.price), document.getElementById('laptopSelect').value)" class="btn btn-primary">Add to Cart</button>
+                        <div id="laptopInfo" class="mt-3">
+                            <p id="laptopDescription">Select a laptop to see its details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img id="vrImage" src="VH.png" class="card-img-top" alt="VR Headset">
+                    <div class="card-body">
+                        <h5 id="vrTitle" class="card-title">VR Headset</h5>
+                        <p id="vrPrice" class="card-text">$399.99</p>
+                        <label for="vrSelect">Choose a VR Headset:</label>
+                        <select id="vrSelect" class="form-control mb-2" onchange="updateVRInfo()">
+                            <option value="Meta Quest 3" data-image="MQ.jpg" data-price="399.99" data-description="Next-level immersion and clarity.">Meta Quest 3 - $399.99</option>
+                            <option value="Valve Index" data-image="VI.jpg" data-price="499.99" data-description="High-resolution display with full motion tracking.">Valve Index - $499.99</option>
+                            <option value="PlayStation VR2" data-image="PVR.jpg.webp" data-price="549.99" data-description="Exclusive VR gaming for PlayStation 5.">PlayStation VR2 - $549.99</option>
+                        </select>
+                        <button onclick="addToCart('VR Headset', parseFloat(document.querySelector('#vrSelect option:checked').dataset.price), document.getElementById('vrSelect').value)" class="btn btn-primary">Add to Cart</button>
+                        <div id="vrInfo" class="mt-3">
+                            <p id="vrDescription">Select a VR headset to see its details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img id="chairImage" src="GC.jpg" class="card-img-top" alt="Gaming Chair">
+                    <div class="card-body">
+                        <h5 id="chairTitle" class="card-title">Gaming Chair</h5>
+                        <p id="chairPrice" class="card-text">$199.99</p>
+                        <label for="chairSelect">Choose a Chair:</label>
+                        <select id="chairSelect" class="form-control mb-2" onchange="updateChairInfo()">
+                            <option value="Secretlab Titan" data-image="ST.jpg" data-price="199.99" data-description="Ergonomic design for extended gaming sessions.">Secretlab Titan - $199.99</option>
+                            <option value="DXRacer Master" data-image="DM.jpg" data-price="249.99" data-description="Premium materials and comfort-focused design.">DXRacer Master - $249.99</option>
+                            <option value="RESPAWN 110" data-image="RE.jpg" data-price="179.99" data-description="Budget-friendly and reliable.">RESPAWN 110 - $179.99</option>
+                        </select>
+                        <button onclick="addToCart('Gaming Chair', parseFloat(document.querySelector('#chairSelect option:checked').dataset.price), document.getElementById('chairSelect').value)" class="btn btn-primary">Add to Cart</button>
+                        <div id="chairInfo" class="mt-3">
+                            <p id="chairDescription">Select a chair to see its details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    
+            
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Gaming Store</p>
+    </footer>
+
+    <!-- Modal for Cart and Checkout -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul id="cartItems" class="list-group mb-3"></ul>
+                <h5>Total: $<span id="totalAmount">0.00</span></h5>
+                <hr>
+                <h6>Choose Payment Method</h6>
+                <select id="paymentMethod" class="form-control mb-3" onchange="togglePaymentFields()">
+                    <option value="creditCard">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bankTransfer">Bank Transfer</option>
+                    <option value="cash">Cash</option>
+                </select>
+                <div id="creditCardInfo" style="display: none;">
+                    <h6>Credit Card Information</h6>
+                    <input type="text" class="form-control mb-2" placeholder="Card Number">
+                    <input type="text" class="form-control mb-2" placeholder="Expiry Date (MM/YY)">
+                    <input type="text" class="form-control mb-2" placeholder="CVV">
+                </div>
+                <h6>Delivery Option</h6>
+                <select id="deliveryOption" class="form-control mb-3" onchange="toggleAddressField()">
+                    <option value="standard">Standard Delivery</option>
+                    <option value="express">Express Delivery</option>
+                    <option value="pickup">Pickup</option>
+                </select>
+                <div id="addressField" style="display: none;">
+                    <h6>Enter your Address</h6>
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
